@@ -5,12 +5,14 @@ import time
 from PIL import Image
 import typst
 
+# Config (more options in main.typ)
+image_size = 100
+event_id = "rotterdam-2025"
+
 if not os.path.exists("attendees.json"):
   print("Downloading TwitchCon attendees")
   with open("attendees.json", "wb") as file:
-    response = requests.get(
-      "https://api.twitchcon.com/attendees?eventName=rotterdam-2025"
-    )
+    response = requests.get(f"https://api.twitchcon.com/attendees?eventName={event_id}")
     file.write(response.content)
     json_data = json.loads(response.content)
 
@@ -40,7 +42,8 @@ for attendee in atteendes:
   if os.path.exists(image_path) and not os.path.exists(image_resized_path):
     print(attendee["name"] + ": Resizing image")
     img = Image.open(image_path)
-    img_resized = img.resize((100, 100), Image.Resampling.LANCZOS)
+    img_resized = img.resize((image_size, image_size), Image.Resampling.LANCZOS)
     img_resized.save(image_resized_path)
 
+print("Compiling document")
 typst.compile("main.typ", "TwitchCon Attendees.pdf")

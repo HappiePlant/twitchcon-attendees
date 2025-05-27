@@ -1,16 +1,21 @@
+// Config (more in main.py)
+#let title = "TwitchCon Rotterdam 2025 Attendees"
+#let font = "Inter"
+#let author = "HappiePlant"
+
 #set document(
-  title: "TwitchCon Rotterdam 2025 Attendees",
-  author: "HappiePlant",
+  title: title,
+  author: author,
 )
 
-#set text(hyphenate: true, font: "Inter", lang: "en")
+#set text(hyphenate: true, font: font, lang: "en")
 #set page(margin: 2em)
 #set par(spacing: 0em)
 #set align(center)
 
 #let data = json("attendees.json")
 
-= TwitchCon Rotterdam 2025 Attendees
+= #title
 
 #v(1em)
 
