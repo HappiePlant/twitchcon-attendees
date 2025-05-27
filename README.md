@@ -7,6 +7,12 @@ Twitch's Who's Coming page only shows random streamers who are coming to TwitchC
 Requires Python 3.12 with some dependencies and the Inter font.
 
 ## How to run
-```sh
+1. Install dependencies
+    ```sh
+    uv sync
+    ```
 
-```
+2. Run project
+    ```sh
+    uv run main.py
+    ```
