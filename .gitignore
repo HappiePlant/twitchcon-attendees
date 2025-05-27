@@ -1,5 +1,11 @@
+# Python
+.venv/
+
+# Resources
 img/
 img_res/
+attendees.*json
+
+# Output
 out/
-attendees.json
-attendees.json*
+*.pdf
